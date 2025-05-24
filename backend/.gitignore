@@ -34,3 +34,12 @@ Thumbs.db
 # Build directory (if any)
 dist/
 build/
+
+!uploads/.gitkeep
+uploads/*
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+prisma/migrations/*/README.md
+prisma/generated/
