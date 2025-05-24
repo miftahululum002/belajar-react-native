@@ -24,5 +24,8 @@ router.post(
     postController.createPost
 );
 
+//define route for post by id
+router.get("/posts/:id", postController.findPostById);
+
 //export router
 module.exports = router;

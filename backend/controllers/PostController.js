@@ -68,4 +68,37 @@ const createPost = async (req, res) => {
     }
 };
 
-module.exports = { findPosts, createPost };
+//function findPostById
+const findPostById = async (req, res) => {
+    //get ID from params
+    const { id } = req.params;
+
+    try {
+        //get post by ID
+        const post = await prisma.post.findUnique({
+            where: {
+                id: Number(id),
+            },
+            select: {
+                id: true,
+                image: true,
+                title: true,
+                content: true,
+            },
+        });
+
+        //send response
+        res.status(200).send({
+            success: true,
+            message: `Get post By ID :${id}`,
+            data: post,
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal server error",
+        });
+    }
+};
+
+module.exports = { findPosts, createPost, findPostById };
