@@ -35,5 +35,8 @@ router.put(
     postController.updatePost
 );
 
+//define route for post delete
+router.delete("/posts/:id", postController.deletePost);
+
 //export router
 module.exports = router;
